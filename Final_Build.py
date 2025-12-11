@@ -24,7 +24,7 @@ manager = DataManager()  # Initialize the logic engine
 # 2. MAIN WINDOW SETUP (GUI)
 # ======================================================
 root = tk.Tk()
-root.title("Student Grade Management System (Elite Edition)")
+root.title("Student Grade Management System")
 root.geometry("1050x720")
 
 # Apply a style for better look
