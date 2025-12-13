@@ -1,29 +1,29 @@
-# File chính chạy chương trình và hiển thị GUI
+# Main execution file and GUI display
 import tkinter as tk
 from tkinter import ttk, messagebox
 
 # ======================================================
-# 1. MAIN WINDOW (CỬA SỔ CHÍNH)
+# 1. MAIN WINDOW
 # ======================================================
 root = tk.Tk()
 root.title("Student Grade Management")
-root.geometry("900x650") # Tăng chiều cao một chút cho thoải mái
+root.geometry("900x650") # Increased height slightly for better layout
 
 
 # ======================================================
-# 2. INPUT FRAME (KHUNG NHẬP LIỆU)
+# 2. INPUT FRAME
 # ======================================================
 input_frame = ttk.LabelFrame(root, text="Add Student")
 input_frame.pack(fill="x", padx=10, pady=10)
 
-# Hàm hỗ trợ tạo Label + Entry cho gọn code
+# Helper function to create Label + Entry for cleaner code
 def create_entry(label_text, row, column):
     ttk.Label(input_frame, text=label_text).grid(row=row, column=column, padx=5, pady=5, sticky="e")
     entry = ttk.Entry(input_frame)
     entry.grid(row=row, column=column + 1, padx=5, pady=5, sticky="w")
     return entry
 
-# Tạo các ô nhập liệu
+# Create input fields
 entry_name = create_entry("Name:", 0, 0)
 entry_math = create_entry("Math:", 0, 2)
 entry_physics = create_entry("Physics:", 1, 0)
@@ -31,31 +31,31 @@ entry_english = create_entry("English:", 1, 2)
 
 
 # ======================================================
-# 3. CALLBACKS (CÁC HÀM XỬ LÝ - CHỜ TEAM KHÁC GHÉP VÀO)
+# 3. CALLBACKS (Placeholder functions - To be integrated)
 # ======================================================
 def add_student():
-    messagebox.showinfo("TODO", "Chức năng add_student() chưa được cài đặt.")
+    messagebox.showinfo("TODO", "add_student() function not implemented yet.")
 
 def load_file():
-    messagebox.showinfo("TODO", "Chức năng load_file() chưa được cài đặt.")
+    messagebox.showinfo("TODO", "load_file() function not implemented yet.")
 
 def save_file():
-    messagebox.showinfo("TODO", "Chức năng save_file() chưa được cài đặt.")
+    messagebox.showinfo("TODO", "save_file() function not implemented yet.")
 
 def show_histogram():
-    messagebox.showinfo("TODO", "Chức năng show_histogram() chưa được cài đặt.")
+    messagebox.showinfo("TODO", "show_histogram() function not implemented yet.")
 
 def show_pie():
-    messagebox.showinfo("TODO", "Chức năng show_pie() chưa được cài đặt.")
+    messagebox.showinfo("TODO", "show_pie() function not implemented yet.")
 
 def show_3d():
-    messagebox.showinfo("TODO", "Chức năng show_3d() chưa được cài đặt.")
+    messagebox.showinfo("TODO", "show_3d() function not implemented yet.")
 
 
 # ======================================================
-# 4. BUTTONS (CÁC NÚT BẤM TÁC VỤ)
+# 4. ACTION BUTTONS
 # ======================================================
-# Tạo một frame con để chứa nút bấm cho căn giữa đẹp hơn (Optional)
+# Create a sub-frame to center buttons (Optional for better UI)
 btn_frame = ttk.Frame(input_frame)
 btn_frame.grid(row=2, column=0, columnspan=4, pady=10)
 
@@ -65,22 +65,22 @@ ttk.Button(btn_frame, text="Save File", command=save_file).pack(side="left", pad
 
 
 # ======================================================
-# 5. TABLE (BẢNG HIỂN THỊ CÓ THANH CUỘN)
+# 5. TABLE (SCROLLABLE DISPLAY)
 # ======================================================
 table_frame = ttk.LabelFrame(root, text="Student List")
 table_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
 columns = ("name", "math", "physics", "english", "avg", "grade")
 
-# --- Thêm Scrollbar ---
+# --- Add Scrollbar ---
 scrollbar = ttk.Scrollbar(table_frame, orient="vertical")
 scrollbar.pack(side="right", fill="y")
 
-# --- Tạo Treeview kết nối Scrollbar ---
+# --- Create Treeview connected to Scrollbar ---
 tree = ttk.Treeview(table_frame, columns=columns, show="headings", height=10, yscrollcommand=scrollbar.set)
-scrollbar.config(command=tree.yview) # Khi kéo thanh cuộn thì bảng chạy theo
+scrollbar.config(command=tree.yview) # Link scrollbar to treeview
 
-# Định dạng cột
+# Format columns
 for col in columns:
     tree.heading(col, text=col.capitalize())
     tree.column(col, width=100, anchor="center")
@@ -89,12 +89,12 @@ tree.pack(side="left", fill="both", expand=True)
 
 
 # ======================================================
-# 6. STATISTICS PANEL (KHUNG THỐNG KÊ)
+# 6. STATISTICS PANEL
 # ======================================================
 stats_frame = ttk.LabelFrame(root, text="Statistics")
 stats_frame.pack(fill="x", padx=10, pady=5)
 
-# Dùng frame con để chia cột thống kê cho đẹp
+# Use sub-frames to divide statistics columns neatly
 left_stats = ttk.Frame(stats_frame)
 left_stats.pack(side="left", padx=20, pady=5)
 right_stats = ttk.Frame(stats_frame)
@@ -114,12 +114,12 @@ label_lowest.pack(anchor="w")
 
 
 # ======================================================
-# 7. VISUALIZATION BUTTONS (NÚT VẼ BIỂU ĐỒ)
+# 7. VISUALIZATION BUTTONS
 # ======================================================
 viz_frame = ttk.Frame(root)
 viz_frame.pack(fill="x", padx=10, pady=10)
 
-# Căn giữa các nút vẽ biểu đồ
+# Center the visualization buttons
 viz_center_frame = ttk.Frame(viz_frame)
 viz_center_frame.pack(anchor="center")
 
