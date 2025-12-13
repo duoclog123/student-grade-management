@@ -16,7 +16,7 @@ import charts_3d                    # Member 4: 3D Charts
 # Note: Member 3's logic is integrated directly or imported if available
 
 # ======================================================
-# 1. INITIALIZE BACKEND (THE BRAIN)
+# 1. INITIALIZE BACKEND 
 # ======================================================
 manager = DataManager()  # Initialize the logic engine
 
@@ -25,7 +25,7 @@ manager = DataManager()  # Initialize the logic engine
 # ======================================================
 root = tk.Tk()
 root.title("Student Grade Management System")
-root.geometry("1050x720")
+root.geometry("900x650")
 
 # Apply a style for better look
 style = ttk.Style()
